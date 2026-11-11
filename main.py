@@ -3,14 +3,13 @@ from dataclasses import dataclass
 from random import randint, shuffle, choice
 from bakery import assert_equal
 from itertools import combinations
-import ADeMare-Casino-Plan.pdf
 
 set_website_title("DeMare Casino")
 set_site_information(
     author="Anthony DeMare",
     description="Simulate Casino Games and Outcomes.",
     sources="",
-    planning=ADeMare-Casino-Plan.pdf,
+    planning="ADeMare-Casino-Plan.pdf",
     links=["https://anthonydemare.github.io/casino-draft-1"]
 )
 #hide_debug_information()
