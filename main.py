@@ -4,6 +4,17 @@ from random import randint, shuffle, choice
 from bakery import assert_equal
 from itertools import combinations
 
+set_website_title("Corgi Cafe")
+set_site_information(
+    author="Your Name",
+    description="Order snacks for very good dogs.",
+    sources="Thanks to the Drafter docs and my study group.",
+    planning="plan.pdf",
+    links=["https://github.com/your-username/your-repository"]
+)
+#hide_debug_information()
+set_website_framed(False)
+
 '''
 make other stuff look good with images and whatnot
 '''
@@ -161,7 +172,8 @@ def card_to_image(card: Card) -> str:
         card_index = "king" + card_index
     if card.number == 14:
         card_index = "ace" + card_index
-    return {card_images[card_index]}
+    link = {card_images[card_index]}
+    return link
 
 @dataclass
 class Player:
@@ -297,7 +309,7 @@ def evaluate_three_card_hand(cards: list[Card]) -> tuple[tuple[int, ...], str]:
 def best_texas_hand(
     player_cards: list[Card],
     community_cards: list[Card]
-) -> tuple[tuple[int, ...], str]:
+) -> tuple[int, str]:
     '''Find the best five-card poker hand from seven available cards.'''
     all_cards = player_cards + community_cards #defines all cards
     best_score = None
@@ -384,7 +396,7 @@ def setup(state: State) -> Page:
     ]:
         content.extend([ #up to six players, default 2
             "Choose the number of players:",
-            SelectBox("player_count", [1, 2, 3, 4, 5, 6], 2),
+            SelectBox("player_count", ["1","2","3","4","5","6"],"2"),
             "\n"
         ])
     '''below added after dropdown
