@@ -10,7 +10,7 @@ set_site_information(
     description="Simulate Casino Games and Outcomes.",
     sources="",
     planning="ADeMare-Casino-Plan.pdf",
-    links=["https://github.com/your-username/your-repository"]
+    links=["https://anthonydemare.github.io/casino-draft-1"]
 )
 #hide_debug_information()
 set_website_framed(False)
