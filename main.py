@@ -4,12 +4,12 @@ from random import randint, shuffle, choice
 from bakery import assert_equal
 from itertools import combinations
 
-set_website_title("Corgi Cafe")
+set_website_title("DeMare Casino")
 set_site_information(
-    author="Your Name",
-    description="Order snacks for very good dogs.",
-    sources="Thanks to the Drafter docs and my study group.",
-    planning="plan.pdf",
+    author="Anthony DeMare",
+    description="Simulate Casino Games and Outcomes.",
+    sources="",
+    planning="ADeMare-Casino-Plan.pdf",
     links=["https://github.com/your-username/your-repository"]
 )
 #hide_debug_information()
