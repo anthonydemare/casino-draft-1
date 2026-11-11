@@ -4,6 +4,14 @@ from random import randint, shuffle, choice
 from bakery import assert_equal
 from itertools import combinations
 
+set_website_title("DeMare Casino")
+set_site_information(
+    author="Anthony DeMare",
+    description="Simulate Casino Games and Outcomes.",
+)
+hide_debug_information()
+set_website_framed(False)
+
 '''
 make other stuff look good with images and whatnot
 '''
