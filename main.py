@@ -9,7 +9,7 @@ set_site_information(
     author="Anthony DeMare",
     description="Simulate Casino Games and Outcomes.",
     sources="",
-    planning="ADeMare-Casino-Plan.pdf",
+    planning=Link("Planning PDF","https://docs.google.com/document/d/1Q54cMhI5bBXzKVjJlt7ZRtrfVYuWWjO9/edit#heading=h.5uuq5osg3ivi"),
     links=["https://anthonydemare.github.io/casino-draft-1"]
 )
 #hide_debug_information()
