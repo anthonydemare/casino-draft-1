@@ -4,6 +4,9 @@ from random import randint, shuffle, choice
 from bakery import assert_equal
 from itertools import combinations
 
+# Use a clean base theme, then apply the custom design below.
+set_website_style("none")
+
 set_website_title("DeMare Casino")
 set_site_information(
     author="Anthony DeMare",
@@ -12,12 +15,137 @@ set_site_information(
     planning=Link("Planning PDF","https://docs.google.com/document/d/1Q54cMhI5bBXzKVjJlt7ZRtrfVYuWWjO9/edit#heading=h.5uuq5osg3ivi"),
     links=["https://anthonydemare.github.io/casino-draft-1"]
 )
+
 #hide_debug_information()
 set_website_framed(False)
 
-'''
-make other stuff look good with images and whatnot
-'''
+add_website_css("""
+/* Demare Casino visual theme */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 32px 20px;
+    color: #f7f1df;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(36, 104, 77, 0.72), transparent 48%),
+        linear-gradient(145deg, #0c3025, #061b16 68%, #04120f);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+body > div,
+main {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    color: #e6c875;
+    text-align: center;
+    line-height: 1.2;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+h1 {
+    margin: 12px 0 24px;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    letter-spacing: 0.07em;
+}
+
+h2 {
+    margin-top: 28px;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+p, label {
+    color: #f7f1df;
+}
+
+button {
+    margin: 8px 8px 8px 0;
+    padding: 12px 22px;
+    border: 1px solid #f0d88f;
+    border-radius: 10px;
+    color: #14271f;
+    background: linear-gradient(180deg, #f1d994, #c9a94f);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow: 0 7px 16px rgba(0, 0, 0, 0.32);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+input, select, textarea {
+    max-width: 100%;
+    margin: 6px 8px 14px 0;
+    padding: 10px 12px;
+    border: 1px solid #b99b50;
+    border-radius: 8px;
+    color: #f7f1df;
+    background: #102d23;
+    font: inherit;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid #e6c875;
+    outline-offset: 2px;
+}
+
+img {
+    width: min(150px, 26vw) !important;
+    height: auto;
+    margin: 8px;
+    border: 2px solid #d8bd72;
+    border-radius: 9px;
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    vertical-align: middle;
+}
+
+a {
+    color: #f0d88f;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid rgba(230, 200, 117, 0.45);
+    margin: 24px 0;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px 12px;
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        margin: 6px 0;
+    }
+
+    img {
+        width: min(125px, 28vw) !important;
+        margin: 5px;
+    }
+}
+""")
 
 @dataclass
 class Card:
@@ -81,7 +209,7 @@ card_images = {
     "ten_diamonds" : "https://www.dcode.fr/tools/playing-cards/images/carreau_10.png",
     "jack_diamonds" : "https://www.dcode.fr/tools/playing-cards/images/carreau_v.png",
     "queen_diamonds" : "https://www.dcode.fr/tools/playing-cards/images/carreau_d.png",
-    "king_diamonds" : "https://www.dcode.fr/tools/playing-cards/images/carreau_r.png",
+    "king_diamonds" : "https://www.dcode.fr/tools/playing-cards/images/carreau_r.png"
     }
 '''
 
@@ -1228,3 +1356,4 @@ start_server(State(
     "Number",
     0
 ))
+
