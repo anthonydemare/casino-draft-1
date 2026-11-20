@@ -593,10 +593,6 @@ def stats(state: State) -> Page:
     content.extend(["\n", Button("Return to Casino", "index")])
     return Page(state, content)
 
-# ----------------------------------------------------------------------
-# HAND EVALUATION (blackjack and poker)
-# ----------------------------------------------------------------------
-
 def card_value(card: Card) -> int:
     '''Return a card's value in Blackjack.
     Aces are 11 (or 1, defined later)
@@ -852,10 +848,6 @@ assert_equal(parse_bet("ALL IN (250)", 250), 250)
 assert_equal(parse_bet("500", 100), 100)
 assert_equal(bet_options(60), ["10", "25", "50", "ALL IN (60)"])
 
-# ----------------------------------------------------------------------
-# HOME PAGE AND SETUP
-# ----------------------------------------------------------------------
-
 @route
 def index(state: State) -> Page:
     '''Display the casino home page.'''
@@ -1008,12 +1000,6 @@ def play_game(state: State) -> Page:
         "This game has not been implemented yet.",
         Button("Return to Casino", "index")
     ])
-
-# ----------------------------------------------------------------------
-# POKER ENGINE (shared by Texas Hold'em, Three-Card and Five-Card Poker)
-# Real betting: ante, check, call, raise, fold, all-in, side pots, and
-# bots that think (a little) about their cards.
-# ----------------------------------------------------------------------
 
 def poker_stages(state: State) -> list[str]:
     '''Names of the betting rounds for the current game.'''
@@ -1484,10 +1470,6 @@ def texas_holdem(state: State) -> Page:
     '''Deal two private cards to each player and start betting.'''
     return start_poker_hand(state)
 
-# ----------------------------------------------------------------------
-# BLACKJACK (bets, 3:2 blackjack payout, double down)
-# ----------------------------------------------------------------------
-
 @route
 def blackjack(state: State) -> Page:
     '''Betting page for a new Blackjack round.'''
@@ -1652,10 +1634,6 @@ def blackjack_double(state: State) -> Page:
             dealer_plays_and_settle(state)
     return blackjack_page(state)
 
-# ----------------------------------------------------------------------
-# ROULETTE (number 35:1, dozens 2:1, everything else 1:1)
-# ----------------------------------------------------------------------
-
 RED_NUMBERS = [
     1, 3, 5, 7, 9, 12, 14, 16, 18,
     19, 21, 23, 25, 27, 30, 32, 34, 36
@@ -1767,10 +1745,6 @@ def spin_roulette(
     content.append(Button("Return to Casino", "index"))
     return Page(state, content)
 
-# ----------------------------------------------------------------------
-# SLOT MACHINE (new!)
-# ----------------------------------------------------------------------
-
 #more cherries than sevens, so jackpots are rare (like in real life)
 SLOT_SYMBOLS = (
     ["🍒"] * 6 + ["🍋"] * 5 + ["🔔"] * 4 + ["⭐"] * 3 + ["💎"] * 2 + ["7️⃣"]
@@ -1834,7 +1808,7 @@ def spin_slots(state: State, bet_amount: str) -> Page:
         content.extend(bet_picker(state))
         content.append(Button("Spin Again", "spin_slots"))
     else:
-        content.append(Button("🎁 Beg for Chips", "free_chips"))
+        content.append(Button("ð Beg for Chips", "free_chips"))
     content.append(Button("Return to Casino", "index"))
     return Page(state, content)
 
